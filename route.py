@@ -33,3 +33,15 @@ def login():
 
     return render_template('login.html')
 
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    return render_template('signup.html')
+
+
+@app.route('/user', methods=['GET', 'POST'])
+def user():
+    email = request.form['email']
+    password = request.form['password']
+    auth.create_user_with_email_and_password(email, password)
+    return render_template('loggedIn.html')
