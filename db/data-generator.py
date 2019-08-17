@@ -3,25 +3,13 @@ import json
 fake = Faker('en_GB')
 
 # will generate the same data
-# fake.seed(4321)
-
-# for loop of range x
-# for _ in range(10):
-#     print(fake.name())
-
-
-# print(fake.password())
-# print(fake.email())
-# print(fake.image_url())
-
-# print(fake.job())
-
-
-# print(fake.company())
-# print(fake.address())
-# print(fake.company_email())
+fake.seed(4321)
 
 users = []
+businesses = []
+jobs = []
+locations = []
+
 def usergenerator():
     for _ in range(10):
         first_name = fake.first_name()
@@ -29,15 +17,56 @@ def usergenerator():
         user = {
             'username': first_name + fake.building_number(),
             'name' : first_name + " " + fake.last_name(),
-            'password' : fake.password(),
+            # 'password' : fake.password(),
             'email': fake.email(),
             'avatar_url': fake.image_url()
         }
         users.append(user)
 
 
-usergenerator()
+def businessgenerator():
+    for _ in range(10):
 
+        business = {
+            "businessName":  fake.company(),
+            "businessAddress": fake.address(),
+            "businessEmail": fake.company_email(),
+        }
+        businesses.append(business)
+
+
+def jobgenerator():
+    for _ in range(5):
+        job = {
+            'jobTitle': fake.job()
+        }
+        jobs.append(job)
+
+
+def locationgenerator():
+    for _ in range(5):
+        location = {
+            'location': fake.city()
+        }
+        locations.append(location)
+
+
+usergenerator()
+businessgenerator()
+jobgenerator()
+locationgenerator()
 
 with open('users.json', 'w') as json_file:
     json.dump(users, json_file)
+
+
+with open('business.json', 'w') as json_file:
+    json.dump(businesses, json_file)
+
+
+with open('jobs.json', 'w') as json_file:
+    json.dump(jobs, json_file)
+
+
+with open('locations.json', 'w') as json_file:
+    json.dump(locations, json_file)
