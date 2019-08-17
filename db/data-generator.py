@@ -9,6 +9,7 @@ users = []
 businesses = []
 jobPosition = []
 locations = []
+jobDescription = []
 
 def usergenerator():
     for _ in range(10):
@@ -35,7 +36,8 @@ def businessgenerator():
         businesses.append(business)
 
 
-def jobgenerator():
+def jobpositiongenerator():
+
     for _ in range(5):
         job = {
             'jobTitle': fake.job()
@@ -44,6 +46,7 @@ def jobgenerator():
 
 
 def locationgenerator():
+
     for _ in range(5):
         location = {
             'location': fake.city()
@@ -51,10 +54,29 @@ def locationgenerator():
         locations.append(location)
 
 
+def jobgenerator():
+
+    for _ in range(10):
+        jobdescrition = {
+            'title': fake.sentence(nb_words=6, variable_nb_words=True, ext_word_list=None),
+            'vacancy': 1,
+            'description': fake.sentences(nb=3, ext_word_list=None),
+            'created_at': fake.date()
+
+        }
+        jobDescription.append(jobdescrition)
+
+
 usergenerator()
 businessgenerator()
-jobgenerator()
+jobpositiongenerator()
 locationgenerator()
+jobgenerator()
+
+
+with open('jobDescription.json', 'w') as json_file:
+    json.dump(jobDescription, json_file)
+
 
 with open('users.json', 'w') as json_file:
     json.dump(users, json_file)
@@ -70,3 +92,4 @@ with open('jobPosition.json', 'w') as json_file:
 
 with open('locations.json', 'w') as json_file:
     json.dump(locations, json_file)
+
