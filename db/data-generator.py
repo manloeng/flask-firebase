@@ -7,7 +7,7 @@ fake.seed(4321)
 
 users = []
 businesses = []
-jobs = []
+jobPosition = []
 locations = []
 
 def usergenerator():
@@ -40,7 +40,7 @@ def jobgenerator():
         job = {
             'jobTitle': fake.job()
         }
-        jobs.append(job)
+        jobPosition.append(job)
 
 
 def locationgenerator():
@@ -64,8 +64,8 @@ with open('business.json', 'w') as json_file:
     json.dump(businesses, json_file)
 
 
-with open('jobs.json', 'w') as json_file:
-    json.dump(jobs, json_file)
+with open('jobPosition.json', 'w') as json_file:
+    json.dump(jobPosition, json_file)
 
 
 with open('locations.json', 'w') as json_file:
