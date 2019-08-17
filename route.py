@@ -26,9 +26,11 @@ def login():
         email = request.form['email']
         password = request.form['password']
         try:
-            auth.sign_in_with_email_and_password(email, password)
+            checkauth = auth.sign_in_with_email_and_password(email, password)
+            print(checkauth)
             return render_template('login.html', s=successful)
         except:
+
             return render_template('login.html', us=unsuccessful)
 
     return render_template('login.html')
