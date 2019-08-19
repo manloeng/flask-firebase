@@ -1,1 +1,7 @@
-[{"location": "East Aliceport"}, {"location": "Port Trevor"}, {"location": "Nixonville"}, {"location": "Jackville"}, {"location": "East Julieshire"}]
+[
+  { "location": "South Vincentberg" },
+  { "location": "South Duncan" },
+  { "location": "Benchester" },
+  { "location": "South James" },
+  { "location": "Port Mohammed" }
+]

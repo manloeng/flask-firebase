@@ -16,7 +16,6 @@ def usergenerator():
         first_name = fake.first_name()
 
         user = {
-            'username': first_name + fake.building_number(),
             'name' : first_name + " " + fake.last_name(),
             # 'password' : fake.password(),
             'email': fake.email(),
@@ -58,7 +57,6 @@ def jobgenerator():
 
     for _ in range(10):
         jobdescrition = {
-            'title': fake.sentence(nb_words=6, variable_nb_words=True, ext_word_list=None),
             'vacancy': 1,
             'description': fake.sentences(nb=3, ext_word_list=None),
             'created_at': fake.date()
